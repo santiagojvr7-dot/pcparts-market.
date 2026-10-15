@@ -13,45 +13,35 @@ let carrito = [];
 const dinero = valor =>
   "$" + valor.toLocaleString("es-CO");
 
+
 function mostrarProductos() {
   const lista = document.getElementById("lista-productos");
-  if (!lista) return;
 
-  lista.innerHTML = productos.map(p => `
+  if (!lista) {
+    console.error("No encuentro lista-productos en index.html");
+    return;
+  }
+
+  lista.innerHTML = `
     <article class="tarjeta-producto">
-      <div style="font-size:50px">${p.emoji}</div>
-      <h3>${p.nombre}</h3>
-      <p>${dinero(p.precio)}</p>
-      <button onclick="agregarAlCarrito(${p.id})">
-        Agregar al carrito
-      </button>
+      <div style="font-size:50px">🧠</div>
+      <h3>Procesador AMD Ryzen 5</h3>
+      <p>$650.000 COP</p>
+      <button onclick="agregarAlCarrito(1)">Agregar al carrito</button>
     </article>
-  `).join("");
+
+    <article class="tarjeta-producto">
+      <div style="font-size:50px">🎮</div>
+      <h3>Tarjeta gráfica NVIDIA RTX</h3>
+      <p>$1.800.000 COP</p>
+      <button onclick="agregarAlCarrito(2)">Agregar al carrito</button>
+    </article>
+
+    <article class="tarjeta-producto">
+      <div style="font-size:50px">💾</div>
+      <h3>SSD de 1 TB</h3>
+      <p>$280.000 COP</p>
+      <button onclick="agregarAlCarrito(4)">Agregar al carrito</button>
+    </article>
+  `;
 }
-
-function agregarAlCarrito(id) {
-  const producto = productos.find(p => p.id === id);
-  carrito.push(producto);
-  mostrarCarrito();
-}
-
-function mostrarCarrito() {
-  const detalle = document.getElementById("detalle-carrito");
-  const total = document.getElementById("total-carrito");
-  const contador = document.getElementById("contador-carrito");
-
-  detalle.innerHTML = carrito.map(p =>
-    `<li>${p.nombre} — ${dinero(p.precio)}</li>`
-  ).join("");
-
-  total.textContent = dinero(
-    carrito.reduce((suma, p) => suma + p.precio, 0)
-  );
-
-  contador.textContent = carrito.length;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  mostrarProductos();
-  mostrarCarrito();
-});
