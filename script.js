@@ -10,21 +10,18 @@ const productos = [
 
 let carrito = [];
 
-const formatoPrecio = precio =>
-  "$ " + precio.toLocaleString("es-CO");
+const dinero = valor =>
+  "$" + valor.toLocaleString("es-CO");
 
 function mostrarProductos() {
-  const catalogo = document.querySelector(
-    "#productos, .productos, #catalogo, .catalogo"
-  );
+  const lista = document.getElementById("lista-productos");
+  if (!lista) return;
 
-  if (!catalogo) return;
-
-  catalogo.innerHTML = productos.map(p => `
-    <article class="producto">
-      <div style="font-size:48px;text-align:center">${p.emoji}</div>
+  lista.innerHTML = productos.map(p => `
+    <article class="tarjeta-producto">
+      <div style="font-size:50px">${p.emoji}</div>
       <h3>${p.nombre}</h3>
-      <p>${formatoPrecio(p.precio)}</p>
+      <p>${dinero(p.precio)}</p>
       <button onclick="agregarAlCarrito(${p.id})">
         Agregar al carrito
       </button>
@@ -39,20 +36,22 @@ function agregarAlCarrito(id) {
 }
 
 function mostrarCarrito() {
-  const resumen = document.querySelector(
-    "#carrito, .carrito, #resumen-carrito"
-  );
-  if (!resumen) {
-    alert("Agregado: " + carrito[carrito.length - 1].nombre);
-    return;
-  }
+  const detalle = document.getElementById("detalle-carrito");
+  const total = document.getElementById("total-carrito");
+  const contador = document.getElementById("contador-carrito");
 
-  const total = carrito.reduce((suma, p) => suma + p.precio, 0);
-  resumen.innerHTML = `
-    <h3>Resumen de tu compra</h3>
-    ${carrito.map(p => `<p>${p.nombre} — ${formatoPrecio(p.precio)}</p>`).join("")}
-    <p><strong>Total: ${formatoPrecio(total)}</strong></p>
-  `;
+  detalle.innerHTML = carrito.map(p =>
+    `<li>${p.nombre} — ${dinero(p.precio)}</li>`
+  ).join("");
+
+  total.textContent = dinero(
+    carrito.reduce((suma, p) => suma + p.precio, 0)
+  );
+
+  contador.textContent = carrito.length;
 }
 
-document.addEventListener("DOMContentLoaded", mostrarProductos);
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarProductos();
+  mostrarCarrito();
+});
