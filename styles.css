@@ -325,3 +325,84 @@ footer {
 #detalle-carrito li button:active {
     transform: scale(0.96);
 }
+
+/* TARJETAS DE PRODUCTOS */
+.rejilla {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 30px 0 45px;
+    align-items: stretch;
+}
+
+.tarjeta-producto {
+    background: linear-gradient(145deg, #1c2233, #111522);
+    color: #f5f7ff;
+    border: 1px solid #303950;
+    border-radius: 18px;
+    padding: 26px 20px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    transition: transform 0.25s ease, border-color 0.25s ease,
+                box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-6px);
+    border-color: #9b5cff;
+    box-shadow: 0 14px 32px rgba(124, 58, 237, 0.2);
+}
+
+.tarjeta-producto h3 {
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 20px 0 10px;
+}
+
+.tarjeta-producto p {
+    color: #b9a0ff;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 8px 0 22px;
+}
+
+.tarjeta-producto button {
+    margin-top: auto;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    width: 100%;
+    background: #7c3aed;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.tarjeta-producto button:hover {
+    background: #9b5cff;
+    transform: scale(1.02);
+}
+
+/* ADAPTACIÓN A CELULARES */
+@media (max-width: 750px) {
+    .rejilla {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .tarjeta-producto {
+        padding: 20px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .rejilla {
+        grid-template-columns: 1fr;
+    }
+}
+
