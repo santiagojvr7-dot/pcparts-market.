@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HardTech Market: componentes y accesorios de hardware.">
+    <title>HardTech Market | Tu tienda de hardware</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <a class="logo" href="#inicio">HardTech <span>Market</span></a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#nosotros">Nosotros</a>
+        </nav>
+
+        <a class="carrito" href="#resumen-compra">
+            🛒 Carrito (<span id="contador-carrito">0</span>)
+        </a>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <p class="etiqueta">EL MUNDO DEL HARDWARE</p>
+            <h1>Potencia tu mundo.<br><span>Mejora tu equipo.</span></h1>
+            <p>Encuentra los componentes ideales para llevar tu PC al siguiente nivel.</p>
+            <a class="boton" href="#productos">Explorar productos</a>
+        </section>
+
+        <section class="productos" id="productos">
+            <p class="etiqueta">NUESTRO CATÁLOGO</p>
+            <h2>Productos destacados</h2>
+
+            <div class="rejilla" id="lista-productos"></div>
+
+            <div class="resumen-carrito" id="resumen-compra">
+                <h3>Resumen de tu compra</h3>
+                <ul id="detalle-carrito"></ul>
+                <p>Total: <strong id="total-carrito">$0</strong></p>
+            </div>
+        </section>
+
+        <section class="nosotros" id="nosotros">
+            <h2>La tecnología que necesitas</h2>
+            <p>HardTech Market conecta a los amantes de la tecnología con el hardware que buscan.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 HardTech Market. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
