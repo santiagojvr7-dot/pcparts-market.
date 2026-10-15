@@ -406,3 +406,58 @@ footer {
     }
 }
 
+/* TARJETAS AZUL CIELO */
+.tarjeta-producto {
+    background: linear-gradient(145deg, #e0f7ff, #b9eaff);
+    color: #123047;
+    border: 1px solid #87d8f5;
+    border-radius: 20px;
+    padding: 26px 20px;
+    text-align: center;
+    box-shadow: 0 8px 22px rgba(14, 165, 233, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-6px);
+    border-color: #38bdf8;
+    box-shadow: 0 14px 30px rgba(14, 165, 233, 0.28);
+}
+
+.tarjeta-producto h3 {
+    color: #123047;
+    font-size: 19px;
+    line-height: 1.4;
+    margin: 20px 0 10px;
+}
+
+.tarjeta-producto p {
+    color: #0369a1;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 8px 0 22px;
+}
+
+.tarjeta-producto button {
+    margin-top: auto;
+    width: 100%;
+    padding: 13px 18px;
+    background: #0284c7;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.tarjeta-producto button:hover {
+    background: #0369a1;
+    transform: scale(1.02);
+}
+
+
